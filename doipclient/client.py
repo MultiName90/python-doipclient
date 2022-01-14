@@ -618,7 +618,7 @@ class DoIPClient:
 
     def _connect(self):
         """Helper to establish socket communication"""
-        self._tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self._tcp_sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
         self._tcp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
         self._tcp_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, True)
         if self._client_ip_address is not None:
@@ -627,7 +627,7 @@ class DoIPClient:
         self._tcp_sock.settimeout(A_PROCESSING_TIME)
         self._tcp_close_detected = False
 
-        self._udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self._udp_sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
         self._udp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self._udp_sock.settimeout(A_PROCESSING_TIME)
         if self._client_ip_address is not None:
