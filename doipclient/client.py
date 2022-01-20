@@ -201,7 +201,7 @@ class DoIPClient:
         :raises TimeoutError: If vehicle announcement not received in time
         """
         start_time = time.time()
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         if timeout is not None:
